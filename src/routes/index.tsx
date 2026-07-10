@@ -1,12 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Default from './layouts/Default'
+import Dashboard from './layouts/Dashboard'
+
 import Home from './pages/Home'
-// import About from './pages/About'
 import Movies from './pages/Movies'
 import MovieDetails from './pages/MovieDetails'
-// import NotFound from './pages/NotFound'
-// import SignIn from './pages/SignIn'
 import Todos from './pages/Todos'
+import DashboardIndex from './pages/dashboards/Index'
+import Stores from './pages/dashboards/Stores'
+import Map from './pages/dashboards/Map'
+
 import { requiresAuth, guestOnly, fetchMovieDetails } from './loaders'
 import Loader from '@/components/Loader'
 import { dynamic } from './dynamic'
@@ -56,6 +59,23 @@ const router = createBrowserRouter([
           {
             path: '/todos',
             element: <Todos />
+          },
+          {
+            element: <Dashboard />,
+            children: [
+              {
+                path: '/dashboard',
+                element: <DashboardIndex />
+              },
+              {
+                path: '/dashboard/stores',
+                element: <Stores />
+              },
+              {
+                path: '/dashboard/map',
+                element: <Map />
+              }
+            ]
           }
         ]
       },
