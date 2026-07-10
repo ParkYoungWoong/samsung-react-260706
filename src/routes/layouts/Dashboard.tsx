@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <>
       <Nav />
-      <section className="ml-[250px] box-border w-[calc(100vw-250px)]">
+      <section className="ml-[250px] box-border w-[calc(100vw-250px)] p-[30px]">
         <Outlet />
       </section>
     </>

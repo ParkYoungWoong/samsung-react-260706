@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import Card from '@/components/dashboards/Card'
 
 export interface Dashboard {
   totalStores: number
@@ -36,6 +37,31 @@ export default function Index() {
   return (
     <>
       <h1>대시보드</h1>
+      {dashboard && (
+        <div className="grid grid-cols-4 grid-rows-[110px_380px_380px] gap-4">
+          <Card name="전체 매장">
+            <div>{dashboard.totalStores}개</div>
+          </Card>
+          <Card name="운영 중">
+            <div>{dashboard.activeStores}개</div>
+          </Card>
+          <Card name="연 매출 합계">
+            <div>{(dashboard.totalSales / 10000).toFixed(1)}억 원</div>
+          </Card>
+          <Card name="매장 평균">
+            <div>{(dashboard.avgSales / 10000).toFixed(1)}억 원</div>
+          </Card>
+          <Card
+            name="지역별 매출"
+            className="col-span-2"></Card>
+          <Card
+            name="지역별 매출 비중"
+            className="col-span-2"></Card>
+          <Card
+            name="월별 전체 매출 추이"
+            className="col-span-4"></Card>
+        </div>
+      )}
     </>
   )
 }
