@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Card from '@/components/dashboards/Card'
+import RegionBarChart from '@/components/dashboards/RegionBarChart'
+import RegionPieChart from '@/components/dashboards/RegionPieChart'
 
 export interface Dashboard {
   totalStores: number
@@ -9,7 +11,7 @@ export interface Dashboard {
   avgSales: number
   regionSales: RegionSale[]
   monthlySales: MonthlySale[]
-  pieData: PieDaum[]
+  pieData: PieData[]
 }
 export interface RegionSale {
   region: string
@@ -19,7 +21,7 @@ export interface MonthlySale {
   month: string
   total: number
 }
-export interface PieDaum {
+export interface PieData {
   name: string
   value: number
 }
@@ -53,10 +55,14 @@ export default function Index() {
           </Card>
           <Card
             name="지역별 매출"
-            className="col-span-2"></Card>
+            className="col-span-2">
+            <RegionBarChart data={dashboard.regionSales} />
+          </Card>
           <Card
             name="지역별 매출 비중"
-            className="col-span-2"></Card>
+            className="col-span-2">
+            <RegionPieChart data={dashboard.pieData} />
+          </Card>
           <Card
             name="월별 전체 매출 추이"
             className="col-span-4"></Card>

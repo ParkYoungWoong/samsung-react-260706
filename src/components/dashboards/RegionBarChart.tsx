@@ -1,9 +1,20 @@
-import { BarChart, Bar, XAxis, YAxis } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts'
+import type { RegionSale } from '@/routes/pages/dashboards/Index'
 
-export default function RegionBarChart() {
+interface Props {
+  data: RegionSale[]
+}
+
+export default function RegionBarChart({ data }: Props) {
   return (
-    <>
-      <BarChart></BarChart>
-    </>
+    <ResponsiveContainer
+      width="100%"
+      height={300}>
+      <BarChart data={data}>
+        <XAxis dataKey="region" />
+        <YAxis tickFormatter={val => `${val / 10000}억`} />
+        <Bar dataKey="total" />
+      </BarChart>
+    </ResponsiveContainer>
   )
 }
