@@ -5,7 +5,9 @@ export default function Default() {
   return (
     <>
       <Header />
-      <Outlet />
+      <main className="mt-[32px]">
+        <Outlet />
+      </main>
       <ScrollRestoration />
     </>
   )

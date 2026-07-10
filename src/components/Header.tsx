@@ -19,7 +19,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex gap-3">
+    <header className="fixed top-0 left-0 box-border flex h-[32px] w-full items-center gap-3 border-b border-gray-200 bg-white px-4">
       {navigations.map(nav => {
         return (
           <NavLink
