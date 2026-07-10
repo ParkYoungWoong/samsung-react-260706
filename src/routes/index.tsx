@@ -8,6 +8,7 @@ import MovieDetails from './pages/MovieDetails'
 import Todos from './pages/Todos'
 import DashboardIndex from './pages/dashboards/Index'
 import Stores from './pages/dashboards/Stores'
+import StoreDetails from './pages/dashboards/StoreDetails'
 import Map from './pages/dashboards/Map'
 
 import { requiresAuth, guestOnly, fetchMovieDetails } from './loaders'
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
               {
                 path: '/dashboard/stores',
                 element: <Stores />
+              },
+              {
+                path: '/dashboard/stores/:storeId',
+                element: <StoreDetails />
               },
               {
                 path: '/dashboard/map',

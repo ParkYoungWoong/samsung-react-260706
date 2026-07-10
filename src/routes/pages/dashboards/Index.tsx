@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Card from '@/components/dashboards/Card'
 import RegionBarChart from '@/components/dashboards/RegionBarChart'
 import RegionPieChart from '@/components/dashboards/RegionPieChart'
+import MonthlyLineChart from '@/components/dashboards/MonthlyLineChart'
 
 export interface Dashboard {
   totalStores: number
@@ -65,7 +66,9 @@ export default function Index() {
           </Card>
           <Card
             name="월별 전체 매출 추이"
-            className="col-span-4"></Card>
+            className="col-span-4">
+            <MonthlyLineChart data={dashboard.monthlySales} />
+          </Card>
         </div>
       )}
     </>

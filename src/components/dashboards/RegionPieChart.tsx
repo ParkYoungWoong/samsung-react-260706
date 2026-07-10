@@ -44,7 +44,9 @@ export default function RegionPieChart({ data }: Props) {
         <Legend />
         <Tooltip
           formatter={val => {
-            if (typeof val === 'number') return `${(val / 10000).toFixed(1)}억`
+            if (typeof val === 'number') {
+              return `${(val / 10000).toFixed(1)}억`
+            }
           }}
         />
       </PieChart>
